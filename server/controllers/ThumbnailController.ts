@@ -121,7 +121,7 @@ export const generateThumbnail = async (req: Request, res:Response )=>{
 
         const uploadResult = await cloudinary.uploader.upload(filePath, {resource_type:'image'})
 
-        thumbnail.image_url = uploadResult.url;
+        thumbnail.image_url = uploadResult.secure_url;
         thumbnail.isGenerating = false;
         await thumbnail.save()
 
